@@ -1,0 +1,16 @@
+name: Cypress
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs: 
+  cypress-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cypress-io/github-action@v5
+        with:
+          command: npm run cypress:run
+          start: npm run start-prod
+          wait-on: http://localhost:5000
