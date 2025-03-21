@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ["cypress.config.js"],
   'env': {
     'browser': true,
     'es6': true,
@@ -7,7 +8,8 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:cypress/recommended'
   ],
   'parserOptions': {
     'ecmaFeatures': {
