@@ -23,3 +23,7 @@ jobs:
         run: npm run test
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:run
+          start: npm run start-prod
+          wait-on: http://localhost:8080
