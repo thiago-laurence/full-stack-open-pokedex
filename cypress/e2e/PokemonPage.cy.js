@@ -1,5 +1,4 @@
-import process from 'process'
-const PORT = process.env.PORT || 5000
+const PORT = 8080
 describe('Pokedex', function() {
   it('front page can be opened', function() {
     cy.visit(`http://localhost:${PORT}`)

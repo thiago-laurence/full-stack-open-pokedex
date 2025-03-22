@@ -1,6 +1,5 @@
-import process from 'process'
 import { test, describe, expect } from '@playwright/test'
-const PORT = process.env.PORT || 5000
+const PORT = 8080
 
 describe('Pokedex', () => {
   test('front page can be opened', async ({ page }) => {
