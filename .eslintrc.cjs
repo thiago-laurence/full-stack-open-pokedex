@@ -1,5 +1,5 @@
 module.exports = {
-  ignorePatterns: ["cypress.config.js"],
+  ignorePatterns: ['cypress.config.js'],
   'env': {
     'browser': true,
     'es6': true,
