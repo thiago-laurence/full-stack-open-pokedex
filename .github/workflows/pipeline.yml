@@ -1,4 +1,4 @@
-name: Pipeline
+name: Deployment pipeline
 
 on: 
   push:
@@ -43,3 +43,14 @@ jobs:
       - name: Trigger deployment
         if: ${{ github.event_name == 'push' }}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+  
+  tag_release:
+    needs: [deployment_pipeline]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version and push tag
+        if: ${{ github.event_name == 'push' }}
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
